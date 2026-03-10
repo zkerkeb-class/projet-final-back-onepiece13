@@ -175,6 +175,18 @@ app.get('/api/auth/users', requireAuth, requireAdmin, (req, res) => {
   res.json(users.map(u => ({ id: u.id, username: u.username, role: u.role, createdAt: u.createdAt })));
 });
 
+// DELETE /api/auth/users/:id  (admin uniquement)
+app.delete('/api/auth/users/:id', requireAuth, requireAdmin, (req, res) => {
+  const id = Number(req.params.id);
+  if (id === req.user.id)
+    return res.status(400).json({ error: 'Vous ne pouvez pas supprimer votre propre compte' });
+  const idx = users.findIndex(u => u.id === id);
+  if (idx === -1) return res.status(404).json({ error: `Utilisateur introuvable` });
+  const [deleted] = users.splice(idx, 1);
+  saveJSON(USERS_PATH, users);
+  res.json({ message: `Compte "${deleted.username}" supprimé` });
+});
+
 // ─────────────────────────────────────────────────────────────────────────────
 // ROUTES — CHARACTERS CRUD (protégées)
 // ─────────────────────────────────────────────────────────────────────────────
