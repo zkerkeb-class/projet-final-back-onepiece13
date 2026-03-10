@@ -350,11 +350,16 @@ function compareCharacters(guess, target) {
       value: guess.affiliation,
       correct: guess.affiliation === target.affiliation
     },
-    fruitDuDemon: {
-      value: guess.fruitDuDemon !== 'Aucun' ? guess.typeFruitDuDemon : 'Non',
-      correct: (guess.fruitDuDemon !== 'Aucun' ? guess.typeFruitDuDemon : 'Non') ===
-               (target.fruitDuDemon !== 'Aucun' ? target.typeFruitDuDemon : 'Non')
-    },
+    fruitDuDemon: (() => {
+      const normFruit = c => {
+        if (c.fruitDuDemon === 'Aucun') return 'Non';
+        const t = c.typeFruitDuDemon;
+        return (t === 'Ancient Zoan' || t === 'Mythical Zoan') ? 'Zoan' : t;
+      };
+      const gVal = normFruit(guess);
+      const tVal = normFruit(target);
+      return { value: gVal, correct: gVal === tVal };
+    })(),
     haki: (() => {
       const split = h => h === 'Aucun' ? [] : h.split(',').map(s => s.trim());
       const gHaki = split(guess.haki);
