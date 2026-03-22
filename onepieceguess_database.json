@@ -1,21 +1,5 @@
 [
   {
-    "personnage": "Roronoa Zoro",
-    "genre": "Masculin",
-    "affiliation": "Straw Hat Pirates",
-    "fruitDuDemon": "Aucun",
-    "typeFruitDuDemon": "Aucun",
-    "haki": "Conqueror, Observation, Armament",
-    "dernierePrime": "320 M",
-    "dernierePrimeValeur": 320000000,
-    "hauteur": "1m81",
-    "hauteurCm": 181,
-    "origine": "East Blue",
-    "premierArc": "Romance Dawn",
-    "debutChapitre": 3,
-    "debutEpisode": 1
-  },
-  {
     "personnage": "Nami",
     "genre": "Féminin",
     "affiliation": "Straw Hat Pirates",
@@ -2062,5 +2046,21 @@
     "premierArc": "Thriller Bark",
     "debutChapitre": 448,
     "debutEpisode": 342
+  },
+  {
+    "personnage": "Roronoa Zoro",
+    "genre": "Masculin",
+    "affiliation": "Straw Hat Pirates",
+    "fruitDuDemon": "Aucun",
+    "typeFruitDuDemon": "Aucun",
+    "haki": "Conqueror, Observation, Armament",
+    "dernierePrime": "320M",
+    "dernierePrimeValeur": 320000000,
+    "hauteur": "1m81",
+    "hauteurCm": 181,
+    "origine": "East Blue",
+    "premierArc": "Romance Dawn",
+    "debutChapitre": 1,
+    "debutEpisode": 3
   }
 ]
